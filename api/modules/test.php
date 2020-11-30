@@ -62,8 +62,7 @@ class Test{
 			if($db->mysqli_num_row($qq)>0){
 				$message=[
 					"status"=>1,
-					"message"=>"Login Success!",
-					"user_name"=>$qq[0]['first_name']." ".$qq[0]['last_name']
+					"message"=>"Login Success!"
 				];
 			}
 			else{
