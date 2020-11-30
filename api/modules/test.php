@@ -55,6 +55,7 @@ class Test{
 		$data = json_decode(file_get_contents("php://input"),true);
 		$user_id = $data['user_id'] == null ? $_POST['user_id'] : $data['user_id'];
 		$password =$data['password'] == null ? $_POST['password'] : $data['password'];
+		$password = md5($password);
 		$ucheck = $db->query("SELECT * FROM users WHERE user_id='$user_id'");
 		if($db->mysqli_num_row($ucheck)>0){
 			$qq = $db->query("SELECT * from users WHERE user_id='$user_id' AND password='$password'");
